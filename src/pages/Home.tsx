@@ -17,7 +17,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="flex flex-col w-max bg-black">
+    <div className="flex flex-col w-max bg-black overflow-auto">
       <Table items={items} />
     </div>
   );

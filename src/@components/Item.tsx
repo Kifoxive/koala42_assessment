@@ -20,14 +20,14 @@ const Item: React.FC<ITable> = ({ data, children, isEven }) => {
 
   const valuesArray = Object.values(data);
   return (
-    <div className={`${isEven ? "bg-[#2C2C2C]" : "bg-[#171717]"}`}>
+    <div className={`${isEven ? "bg-[#2C2C2C]" : "bg-[#171717]"} w-max`}>
       {/* row of values */}
       <div
         onClick={() => setOpenNestedTable((prev) => !prev)}
         className="flex flex-row items-center gap-4 cursor-pointer"
       >
         {/* show nested table button */}
-        <div className="w-[100px] flex justify-center items-center h-[50px] p-2">
+        <div className="w-[80px] flex justify-center items-center h-[40px] p-2">
           {children[nestedObject]?.records.length > 0 && (
             <p>
               <img
@@ -42,13 +42,13 @@ const Item: React.FC<ITable> = ({ data, children, isEven }) => {
         </div>
 
         {valuesArray.map((value, index) => (
-          <div className="w-[100px] p-2 text-center" key={index}>
-            <p className="text-[1.4rem] text-white">{value}</p>
+          <div className="w-[80px] p-2 text-center" key={index}>
+            <p className="text-[1.2rem] text-white">{value}</p>
           </div>
         ))}
 
         {/* delete item button*/}
-        <div className="w-[100px] flex justify-center">
+        <div className="w-[80px] flex justify-center">
           <button
             onClick={(e) => onClickRemove(e)}
             className="relative hover:top-1 p-4"
