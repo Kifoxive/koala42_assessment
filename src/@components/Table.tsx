@@ -9,10 +9,10 @@ const Table: React.FC<{ items: ITable[] }> = ({ items }) => {
   return (
     <div>
       {/* description row */}
-      <div className="flex items-center bg-eucalipto gap-4 w-max">
-        <div className="w-[100px] h-[50px] p-2" />
-        {items.length > 0 &&
-          Object.keys(items[0]?.data).map((value, index) => (
+      {items.length > 0 && (
+        <div className="flex items-center bg-eucalipto gap-4 w-max">
+          <div className="w-[100px] h-[50px] p-2" />
+          {Object.keys(items[0]?.data).map((value, index) => (
             <div
               className="w-[100px] p-2 text-center text-[1.4rem] text-black"
               key={index}
@@ -20,10 +20,11 @@ const Table: React.FC<{ items: ITable[] }> = ({ items }) => {
               <p>{value}</p>
             </div>
           ))}
-        <div className="w-[100px] p-2 text-center text-[1.4rem] text-black">
-          <p>Delete</p>
+          <div className="w-[100px] p-2 text-center text-[1.4rem] text-black">
+            <p>Delete</p>
+          </div>
         </div>
-      </div>
+      )}
       {/* tables row */}
       <div>
         {items.map((item) => {

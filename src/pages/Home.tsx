@@ -1,17 +1,19 @@
 import React, { useEffect } from "react";
 
 import { setAllItems } from "../redux/items/slice";
-import { data } from "../constants/index";
+
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { getAllItems } from "../redux/items/selectors";
 import { Table } from "../@components";
+import { dataJson } from "../data";
+import { ITable } from "../redux/items/types";
 
 const Home = () => {
   const dispatch = useAppDispatch();
   const items = useAppSelector(getAllItems);
 
   useEffect(() => {
-    dispatch(setAllItems(data));
+    dispatch(setAllItems(dataJson as ITable[]));
   }, []);
 
   return (

@@ -1,6 +1,6 @@
 import { IItemsSliceState, ITable } from "./types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { searchTree } from "../../utils/index";
+import { deleteItem } from "../../utils/index";
 
 const initialState: IItemsSliceState = {
   allItems: [],
@@ -14,7 +14,7 @@ const itemsSlice = createSlice({
       state.allItems = action.payload;
     },
     removeItem(state, action: PayloadAction<string>) {
-      state.allItems = state.allItems.filter(searchTree(action.payload));
+      state.allItems = deleteItem(state.allItems, action.payload);
     },
   },
 });
